@@ -1,0 +1,74 @@
+
+<div class="pd-20 clearfix" ng-init="getUnit()">
+    <div class="search-bar">
+        <span go-back=""></span>
+        <button  class="btn btn-primary" type="submit" ng-click="edit()"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+        <button  class="btn btn-danger" type="submit" ng-click="deletebar()"><i class="Hui-iconfont Hui-iconfont-del2"></i> 删除</button>
+    </div>
+    <form class="form form-horizontal" name="unitForm" novalidate>
+        <div class="col-md-5" >
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>省份：</label>
+                <div class="formControls col-3">
+                    <span class="select-box inline">
+                        <select name="province" class="select" ng-model="Province" ng-options="p.name for p in province" ng-change="changeProvince()">
+                            <option value="">请选择省份</option>
+                        </select>
+                    </span>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>城市：</label>
+                <div class="formControls col-3">
+                    <span class="select-box inline">
+                        <select name="city" class="select" ng-model="City" ng-options="c.name for c in city" ng-change="changeCity()">
+                            <option value="">请选择城市</option>
+                        </select>
+                    </span>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>合作公司：</label>
+                <div class="formControls col-4">
+                    <input type="text" class="input-text" value="" placeholder="合作公司" ng-model="unit.UnionUnit" required>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>公司电话：</label>
+                <div class="formControls col-4">
+                    <input type="text" class="input-text" value="" placeholder="公司电话" ng-model="unit.UnionPhone">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3">公司传真：</label>
+                <div class="formControls col-4">
+                    <input type="text" class="input-text" value="" placeholder="公司传真" ng-model="unit.UnionFax" >
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3">公司邮箱：</label>
+                <div class="formControls col-4">
+                    <input type="text" class="input-text" value="" placeholder="公司邮箱" ng-model="unit.UnionEMail" >
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>负责人：</label>
+                <div class="formControls col-4">
+                    <input type="text" class="input-text" value="" placeholder="负责人" ng-model="unit.UnionBoss" required>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-3"><span class="c-red">*</span>负责人电话：</label>
+                <div class="formControls col-4">
+                    <input type="text" class="input-text" value="" placeholder="负责人电话" ng-model="unit.UnionContact" required>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="row cl">
+                <div map-edit style="position:relative;"></div>
+            </div>
+
+        </div>
+    </form>
+</div>

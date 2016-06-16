@@ -1,0 +1,186 @@
+
+<div class="pd-20 clearfix" ng-init="getunit()">
+    <div class="search-bar">
+       <span go-back=""></span>
+        <button  class="btn btn-primary" type="button" ng-click="savecar()"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+    </div>
+    <form class="form form-horizontal" name="carForm">
+        <div class="col-md-5" >
+            <div class="row cl">
+                <label class="form-label col-2"><span class="c-red">*</span>品牌：</label>
+                <div class="formControls col-3">
+                    <span class="select-box inline">
+                        <select name="" class="select" ng-model="car.BrandID" autofocus required>
+                            <option value="">请选择品牌</option>
+                            <option value="17">奔驰</option>
+                            <option value="150">沃尔沃</option>
+                            <option value="103">路虎</option>
+                            <option value="45">丰田</option>
+                            <option value="5">奥迪</option>
+                            <option value="48">福特</option>
+                            <option value="70">JEEP</option>
+                            <option value="8">宝马</option>
+                            <option value="108">玛莎拉蒂</option>
+                            <option value="100">铃木</option>
+                            <option value="10">保时捷</option>
+                            <option value="126">日产</option>
+                            <option value="34">大众</option>
+                            <option value="19">本田</option>
+                            <option value="155">现代</option>
+                        </select>
+                    </span>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-2"><span class="c-red">*</span>车型：</label>
+                <div class="formControls col-5">
+                    <input type="text" class="input-text" value="" placeholder="品牌+车系+年份+排量+发动机类型+型号"  name="" ng-model="car.FullName" required>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-2"><span class="c-red">*</span>产地：</label>
+                <div class="formControls col-2">
+                   <span class="select-box inline">
+                        <select name="" class="select" ng-model="car.CountryID" required>
+                            <option value="">请选择产地</option>
+                            <option value="1">德国</option>
+                            <option value="2">日本</option>
+                            <option value="3">美国</option>
+                            <option value="4">法国</option>
+                            <option value="5">韩国</option>
+                            <option value="6">中国</option>
+                            <option value="7">其他</option>
+                        </select>
+                    </span>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-2"><span class="c-red">*</span>颜色：</label>
+                <div class="formControls col-3">
+                    外观 <span color-mark class="color-1" style="display: inline-block;width: 15px;height:15px;" id="ColorOutID" data-color="1">
+
+                         </span>
+                    <input type="text" class="input-text size-S" style="width: 80px" value="" placeholder="外观色备注" ng-model="car.ColorOutMemo" required>
+                </div>
+                <div class="formControls col-3">
+                    内饰
+                    <span color-mark class="color-1" style="display: inline-block;width: 15px;height:15px;" id="ColorInID" data-color="1">
+                            <input type="text" style="opacity: 0;width: 0;height: 0" />
+                         </span>
+                    <input type="text" class="input-text size-S" style="width: 80px" value="" placeholder="内饰色备注" ng-model="car.ColorInMemo" required>
+
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-2"><span class="c-red">*</span>数量：</label>
+                <div class="formControls col-2">
+                    <input type="text" class="input-text" value="" placeholder="库存数" ng-model="car.CarCount" required>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-2"><span class="c-red">*</span>类别：</label>
+                <div class="formControls col-8" car-style>
+                    <a href="javascript:void(0)" class="car-style active" data-value="1">轿车</a>
+                    <a href="javascript:void(0)" class="car-style" data-value="2">SUV</a>
+                    <a href="javascript:void(0)" class="car-style" data-value="3">MPV</a>
+                    <a href="javascript:void(0)" class="car-style" data-value="4">跑车</a>
+                    <a href="javascript:void(0)" class="car-style" data-value="5">其他</a>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-2"><span class="c-red">*</span>状态：</label>
+                <div class="formControls col-8" car-flag>
+                    <a href="javascript:void(0)" class="car-flag active" data-value="1">现车</a>
+                    <a href="javascript:void(0)" class="car-flag" data-value="2">报关中</a>
+                    <a href="javascript:void(0)" class="car-flag" data-value="3">已到港</a>
+                    <a href="javascript:void(0)" class="car-flag" data-value="4">期货</a>
+                    <input class="laydate-icon size-L" style="width: 90px;display: none;" value="" layer-date id="FuturesTime" ng-model="car.FuturesTime">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-2"><span class="c-red">*</span>市场价：</label>
+                <div class="formControls col-4">
+                    <span class="select-box inline">
+                        <input type="text" class="input-text input-noborder" style="width:90px;" ng-model="car.PriceMarket" required>万元
+                     </span>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-2"><span class="c-red">*</span>报价：</label>
+                <div class="formControls col-10">
+                    <div class="skin-minimal pb-10 clearfix" style="border-bottom: 1px solid #dedede">
+                        <div class="radio-box f-l" >
+                            <input type="radio" id="radio-1" name="demo-radio1"  value="1"  checked>
+                            <label for="radio-1">全国统一价</label>
+                        </div>
+                         <span class="select-box inline f-l ml-5">
+                            <input type="text" class="input-text input-noborder" style="width:90px;" ng-model="Price">万元
+                         </span>
+                        <span class="f-l" style="line-height: 31px;margin-left: 15px">优惠 <span class="c-danger agio" ng-bind="car.PriceAgioMax">0</span> 万</span>
+                    </div>
+                    <div class="pt-10 pb-10 take-container skin-minimal">
+                        <div class="radio-box pb-10">
+                            <input type="radio" id="radio-2" name="demo-radio1"  value="0">
+                            <label for="radio-2">按提车地特价</label>
+                        </div>
+                        <div class="take-content clearfix  mt-10" add-city></div>
+                    </div>
+                    <p>
+                        <i class="Hui-iconfont Hui-iconfont-add4 f-20 c-primary" style="margin-left: 180px" takecity-add></i>
+                    </p>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-2"><span class="c-red"></span>上架：</label>
+                <div class="formControls col-6">
+                    <div class="skin-minimal">
+                        <div class="check-box">
+                            <input type="checkbox" id="checkbox-3" ng-model="car.OnlineFlag" value="1">
+                            <label for="checkbox-3">上架</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-2">推广：</label>
+                <div class="formControls col-6">
+                    <div class="skin-minimal">
+                        <div class="check-box">
+                            <input type="checkbox" id="checkbox-1" ng-model="car.HotCar" value="1">
+                            <label for="checkbox-1">热门车辆</label>
+                        </div>
+                        <div class="check-box">
+                            <input type="checkbox" id="checkbox-2" ng-model="car.AgioCar" value="1">
+                            <label for="checkbox-2">特惠车辆</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-5">
+
+            <div class="row cl">
+                <p class="text-l"><span class="c-red">*</span>车辆照片：</p>
+                <div class="formControls">
+                    <div web-uploader></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row cl">
+                <label class="form-label col-1"><span class="c-red">*</span>配置情况：</label>
+                <div class="formControls col-9" editor>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+
+    $(function(){
+        $(".take-container").on("click",".take-del",function(){
+            $(this).parent('.take-content').remove();
+        });
+    })
+</script>

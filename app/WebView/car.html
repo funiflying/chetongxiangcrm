@@ -1,0 +1,175 @@
+
+<div class="pd-20" ng-init="getList();getunit()">
+    <div class="mt-20">
+        <div class="search-bar">
+            <label for="search">
+                当前页检索：
+                <input type="search" class="input-text inline" id="search" placeholder="输入车型信息" ng-model="search"/>
+            </label>
+             <span class="r">
+                <a class="btn btn-primary radius" ui-sref="admin.add"><i class="Hui-iconfont">&#xe600;</i> 新增车辆</a>
+              </span>
+        </div>
+        <div class="text-l filter-bar">
+            <label>
+                品牌：<span class="select-box inline">
+                            <select name="" class="select" ng-model="filter.BrandID">
+                                <option value="null">请选择品牌</option>
+                                <option value="17">奔驰</option>
+                                <option value="150">沃尔沃</option>
+                                <option value="103">路虎</option>
+                                <option value="45">丰田</option>
+                                <option value="5">奥迪</option>
+                                <option value="48">福特</option>
+                                <option value="70">JEEP</option>
+                                <option value="8">宝马</option>
+                                <option value="108">玛莎拉蒂</option>
+                                <option value="100">铃木</option>
+                                <option value="10">保时捷</option>
+                                <option value="126">日产</option>
+                                <option value="34">大众</option>
+                                <option value="19">本田</option>
+                                <option value="155">现代</option>
+                            </select>
+		                </span>
+            </label>
+            <label>产地：
+        <span class="select-box inline">
+            <select name="" class="select" ng-model="filter.CountryID">
+                <option value="null">不限</option>
+                <option value="1">德国</option>
+                <option value="2">日本</option>
+                <option value="3">美国</option>
+                <option value="4">法国</option>
+                <option value="5">韩国</option>
+                <option value="6">中国</option>
+                <option value="7">其他</option>
+            </select>
+         </span></label>
+            <label>类别：
+        <span class="select-box inline">
+            <select name="" class="select"  ng-model="filter.StyleID">
+                <option value="null">不限</option>
+                <option value="1">轿车</option>
+                <option value="2">SUV</option>
+                <option value="3">MPV</option>
+                <option value="4">跑车</option>
+                <option value="5">其他</option>
+            </select>
+         </span></label>
+            <label> 状态：
+        <span class="select-box inline">
+            <select name="" class="select"  ng-model="filter.CarFlag">
+                <option value="null">不限</option>
+                <option value="1">现车</option>
+                <option value="2">报关中</option>
+                <option value="3">已到港</option>
+                <option value="4">期货</option>
+            </select>
+         </span></label>
+            <label>上架：
+        <span class="select-box inline">
+            <select name="null" class="select"  ng-model="filter.OnlineFlag">
+                <option value="null">不限</option>
+                <option value="1">上架</option>
+                <option value="0">下架</option>
+            </select>
+         </span></label>
+            <label>提车地：
+            <span class="select-box inline" >
+                <select name="null" class="select" ng-options="p.Province for p in unitlist"  ng-model="unit_province">
+                    <option value="">不限</option>
+                </select>
+             </span>
+                <span class="select-box inline"  >
+                <select name="null" class="select" ng-model="filter.UnitCode">
+                    <option value="">不限</option>
+                    <option value="{{c.UnitCode}}" ng-repeat="c in unit_province.Citys">{{c.City}}</option>
+                </select>
+             </span>
+            </label>
+            <label> 数量：
+        <span class="select-box inline">
+        <input type="text" class="input-text input-noborder" ng-model="filter.CarCount_Start" style="width:60px;">
+        </span>
+                -
+         <span class="select-box inline">
+        <input type="text" class="input-text input-noborder" ng-model="filter.CarCount_End" style="width:60px;">
+        </span>
+            </label>
+            <label>报价：
+          <span class="select-box inline">
+          <input type="text" class="input-text input-noborder" ng-model="filter.Price_Start" style="width:60px;">万
+        </span>
+                -
+         <span class="select-box inline">
+          <input type="text" class="input-text input-noborder" ng-model="filter.Price_End" style="width:60px;">万
+        </span>
+            </label>
+            <label>
+                <button name="" class="btn btn-success" type="button" ng-click="searchlist()"><i class="Hui-iconfont">&#xe665;</i>搜索</button>
+                <button name="" class="btn" type="reset" ng-click="clearsearch()"><i class="Hui-iconfont Hui-iconfont-huanyipi"></i>清除</button>
+            </label>
+        </div>
+        <table class="table table-border table-bordered table-bg table-hover table-sort">
+            <thead>
+            <tr class="text-c">
+                <th width="25">序号</th>
+                <th width="80">品牌</th>
+                <th>车型</th>
+                <th width="80">产地</th>
+                <th width="80">类别</th>
+                <th width="120">颜色(外/内)</th>
+                <th width="75">数量</th>
+                <th width="60">状态</th>
+                <th width="60">市场价</th>
+                <th width="60">最高优惠</th>
+                <th width="180">报价(提车地)</th>
+                <th width="180">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="text-c" ng-repeat="obj in list|filter:searchFilter">
+                <td ng-bind="$index+1"></td>
+                <td ng-bind="obj.BrandID|BrandName"></td>
+                <td class="text-l" >
+                    <a href="/home/carinfo?CarNo={{obj.CarNo}}" class="text-primary"  title="{{obj.FullName}}" ng-bind="obj.FullName" target="_blank"></a>
+                     <span class="icon-hot" ng-if="obj.HotCar">热</span>
+                     <span class="icon-agio" ng-if="obj.AgioCar">特</span>
+                </td>
+                <td ng-bind="obj.CountryID|Country"></td>
+                <td ng-bind="obj.StyleID|Style"></td>
+                <td>
+                    <div color-tip>
+                        <span class="color-icon out color-{{obj.ColorOutID}}" title="{{obj.ColorOutMemo}}"></span> /
+                        <span class="color-icon in color-{{obj.ColorInID}}" title="{{obj.ColorInMemo}}"></span>
+                    </div>
+
+                </td>
+
+                <td ng-bind="obj.CarCount"></td>
+                <td class="td-status" ng-bind-html="obj.CarFlag|CarStatusFormat">
+                    <span class="label label-success radius" ng-bind="obj.CarFlag|CarStatus"></span>
+                </td>
+                <td><span ng-bind="obj.PriceMarket|currency:'￥'"></span>万</td>
+                <td><span ng-bind="obj.PriceAgioMax|currency:'￥'"></span>万</td>
+                <td>
+
+                      <div ng-bind-html="obj|CarOffer" class="offer" car-offer>
+
+                      </div>
+                </td>
+                <td class="f-14 td-manage" ng-switch="obj.OnlineFlag">
+                    <a  class="c-danger Hui-iconfont Hui-iconfont-xiajia" href="javascript:void(0);" title="下架" ng-click="soldout(obj.CarNo)" ng-switch-when="1"></a>
+                    <a  class="c-primary Hui-iconfont Hui-iconfont-shangjia"  href="javascript:void(0);" title="上架" ng-click="rack(obj.CarNo)"  ng-switch-when="0"></a>
+                    <a  class="ml-5 Hui-iconfont Hui-iconfont-edit1"  href="#/admin/edit?CarNo={{obj.CarNo}}" title="编辑"></a>
+                    <a  class="ml-5 Hui-iconfont Hui-iconfont-del"  href="javascript:void(0);" title="删除" ng-click="deletecar(obj)" ></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div pagination  total-items="pageTotal" ng-model="currentPage" ng-change="changePager()"
+             previous-text="上一页" next-text="下一页" max-size="10" ng-show="pageTotal>PAGE_CONF.PageSize"></div>
+    </div>
+    </div>
+

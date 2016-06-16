@@ -1,0 +1,76 @@
+
+<div class="pd-20 col-md-8">
+    <form action="" method="post" class="form form-horizontal" id="form-admin-add">
+        <div class="row cl">
+            <label class="form-label col-3"><span class="c-red">*</span>用户名：</label>
+            <div class="formControls col-4">
+                <input type="text" class="input-text" value="" placeholder="" id="user-name" name="user-name" datatype="*2-16" nullmsg="用户名不能为空">
+            </div>
+            <div class="col-4"> </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-3"><span class="c-red">*</span>初始密码：</label>
+            <div class="formControls col-4">
+                <input type="password" placeholder="密码" autocomplete="off" value="" class="input-text" name="newpassword" datatype="*6-20" nullmsg="密码不能为空">
+            </div>
+            <div class="col-4"> </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-3"><span class="c-red">*</span>确认密码：</label>
+            <div class="formControls col-4">
+                <input type="password" placeholder="确认新密码" autocomplete="off" class="input-text Validform_error" errormsg="您两次输入的新密码不一致！" datatype="*" nullmsg="请再输入一次新密码！" recheck="newpassword" id="newpassword2" name="newpassword2">
+            </div>
+            <div class="col-4"> </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-3">真实姓名：</label>
+            <div class="formControls col-4 skin-minimal">
+                <input type="text" class="input-text" value="" placeholder="" >
+            </div>
+            <div class="col-4"> </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-3">联系电话：</label>
+            <div class="formControls col-4">
+                <input type="text" class="input-text" value="" placeholder="" id="user-tel" name="user-tel"  >
+            </div>
+            <div class="col-4"> </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-3">联系地址：</label>
+            <div class="formControls col-4">
+                <input type="text" class="input-text" placeholder="" name="address" >
+            </div>
+            <div class="col-4"> </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-3">角色：</label>
+            <div class="formControls col-4"> <span class="select-box" style="width:150px;">
+				<select class="select" name="admin-role" size="1">
+                    <option value="0">售车专员</option>
+                    <option value="1">售车主管</option>
+                    <option value="9">系统管理员</option>
+                </select>
+				</span> </div>
+        </div>
+        <div class="row cl">
+            <div class="col-9 col-offset-3">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="lib/Validform/5.3.2/Validform.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#form-admin-add").Validform({
+            tiptype:2,
+            callback:function(form){
+                form[0].submit();
+                var index = parent.layer.getFrameIndex(window.name);
+                parent.$('.btn-refresh').click();
+                parent.layer.close(index);
+            }
+        });
+    });
+</script>

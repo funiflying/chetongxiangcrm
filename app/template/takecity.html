@@ -1,0 +1,35 @@
+<!--<div class="mc-select">
+    <div class="mcs-box">
+        <em>请选择城市</em>
+        <span></span>
+    </div>
+    <ul class="mc-improt" style="display: none">
+        <li ng-repeat="obj in province" data-pid="{{obj.id}}">
+            <a href="javascript:void(0);" class="province-btn" >
+                <span ng-bind="obj.name" ></span>
+                <em></em>
+            </a>
+            <ol style="display: none;">
+                <li ng-repeat="item in city"><a href="javascript:void(0);" ng-bind="item.name" data-cid="{{item.id}}"></a></li>
+            </ol>
+        </li>
+    </ul>
+    <input type="hidden"/>
+</div>-->
+<span class="f-l">
+    <span class="select-box inline">
+    <select name="province" class="select" ng-model="Province" ng-options="p.name for p in province" ng-change="changeProvince()">
+        <option value="">请选择省份</option>
+    </select>
+</span>
+<span class="select-box inline">
+    <select name="city" class="select" ng-model="City" ng-options="c.name for c in city" >
+        <option value="">请选择城市</option>
+    </select>
+</span>
+</span>
+<span class="select-box inline f-l ml-5">
+        <input type="text" class="input-text input-noborder" style="width:90px;">万元
+ </span>
+<span class="f-l" style="line-height: 31px;margin-left: 15px">优惠 <span class="c-danger agio">0</span> 万</span>
+<span class="take-del f-l"><i class="Hui-iconfont Hui-iconfont-shenhe-tingyong"></i></span>

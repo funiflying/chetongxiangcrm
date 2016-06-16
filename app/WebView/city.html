@@ -1,0 +1,37 @@
+
+<div ng-init="getList();">
+
+    <div class="text-r filter-bar">
+        时间：
+        <input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}'})" id="logmin" class="input-text Wdate" style="width:120px;">
+        -
+        <input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;">
+        <label>
+            <button name="" class="btn btn-success" type="button" ng-click="searchlist()"><i class="Hui-iconfont">&#xe665;</i>搜索</button>
+            <button name="" class="btn btn-primary" type="button" ng-click="clearsearch()"><i class="Hui-iconfont Hui-iconfont-daochu"></i>导出Excel</button>
+        </label>
+    </div>
+    <table class="table table-border table-bordered table-bg table-hover table-sort">
+        <thead>
+        <tr class="text-c">
+            <th width="25">序号</th>
+            <th width="120">事业人员</th>
+            <th width="120">负责人</th>
+            <th width="120">车辆上传审核通过)</th>
+            <th width="120">车辆下架</th>
+            <th width="120">联盟商家注册家</th>
+            <th width="150">平台二手车交易量</th>
+            <th width="250">平台二手车交易金额
+                (不含服务费、物流费</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-c" ng-repeat="obj in list|filter:searchFilter">
+
+        </tr>
+        </tbody>
+    </table>
+    <div pagination  total-items="pageTotal" ng-model="currentPage" ng-change="changePager()"
+         previous-text="上一页" next-text="下一页" max-size="10" ng-show="pageTotal>PAGE_CONF.PageSize"></div>
+</div>
+

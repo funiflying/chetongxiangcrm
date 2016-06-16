@@ -1,0 +1,20 @@
+[
+  {
+    "text": "123",
+    "heading": "false"
+  },
+  {
+    "text": "考核管理",
+    "sref": "admin.effect",
+    "icon": "Hui-iconfont Hui-iconfont-shujutongji",
+    "translate": "",
+    "access":["-1"]
+  },
+  {
+    "text": "组织结构",
+    "sref": "admin.unit",
+    "icon": "Hui-iconfont Hui-iconfont-usergroup2",
+    "translate": "",
+    "access":["-1"]
+  }
+]

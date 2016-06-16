@@ -1,0 +1,14 @@
+{
+  "name":"chetongxiang",
+  "description":"",
+  "version":"1.0.0",
+  "license":"MIT",
+  "dependencies":{
+    "angular":"~1.2.9",
+    "angular-ui-router":"~0.2.8",
+    "angular-resource":"~1.2.9",
+    "angular-animate":"~1.2.9",
+    "bootstrap":"1.2.x",
+    "jquery":"1.9.x"
+  }
+}

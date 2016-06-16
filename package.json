@@ -1,0 +1,29 @@
+{
+  "name": "ctximport",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8080 -c-1 ./app",
+    "pretest": "npm install",
+    "test": "karma start karma.conf.js",
+    "preupdata-webdriver": "npm install",
+    "update-webdriver": "webdriver-manager update",
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor e2etest/protractor.conf.js"
+  },
+  "devDependencies": {
+    "bower": "~1.7.7",
+    "http-server": "latest",
+    "jasmine-core": "~2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "latest",
+    "karma-firefox-launcher": "latest",
+    "karma-jasmine": "~1.0.2",
+    "protractor": "~3.2.2"
+  },
+  "author": "funiflying",
+  "license": "MIT"
+}

@@ -1,0 +1,68 @@
+<script type="text/javascript" src="js/H-ui.admin.js"></script>
+<header class="Hui-header cl"> <a class="Hui-logo l" title="" href="javascript:void(0)" ng-bind="app.name"></a> <a class="Hui-logo-m l" href="/" title="">H-ui</a> <span class="Hui-subtitle l"></span>
+	<!--<nav class="mainnav cl" id="Hui-nav">
+		<ul>
+			<li class="dropDown dropDown_click"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
+				<ul class="dropDown-menu radius box-shadow">
+					<li><a href="javascript:;" onclick="article_add('添加资讯','article-add.html')"><i class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
+					<li><a href="javascript:;" onclick="picture_add('添加资讯','picture-add.html')"><i class="Hui-iconfont">&#xe613;</i> 图片</a></li>
+					<li><a href="javascript:;" onclick="product_add('添加资讯','product-add.html')"><i class="Hui-iconfont">&#xe620;</i> 产品</a></li>
+					<li><a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')"><i class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>-->
+	<ul class="Hui-userbar" >
+		<li></li>
+		<li class="dropDown dropDown_hover"><a href="#" class="dropDown_A" ><span ng-bind="USER.UserName"></span> <i class="Hui-iconfont">&#xe6d5;</i></a>
+			<ul class="dropDown-menu radius box-shadow" ng-controller="LoginController">
+				<!--<li><a href="#">个人信息</a></li>
+				<li><a href="#">切换账户</a></li>-->
+				<li><a href="javascript:void(0)" ng-click="loginOff()">退出</a></li>
+			</ul>
+		</li>
+<!--		<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>-->
+		<li id="Hui-skin" class="dropDown right dropDown_hover"><a href="javascript:;" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
+			<ul class="dropDown-menu radius box-shadow">
+				<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
+				<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
+				<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
+				<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
+				<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
+				<li><a href="javascript:;" data-val="orange" title="绿色">橙色</a></li>
+			</ul>
+		</li>
+	</ul>
+	<a aria-hidden="false" class="Hui-nav-toggle" href="#"></a>
+</header>
+<aside class="Hui-aside" ng-controller="SidebarController">
+	<div class="menu_dropdown bk_2"  min-title >
+		<dl  ng-repeat="item in menuItems">
+			<dt><i data-ng-class="item.icon"></i> <a ng-href="{{state.href(item.sref,item.params)}}" ng-bind="item.text"></a> </dt>
+			<dd ng-if="item.submenu">
+				<ul>
+					<li ng-repeat="subitem in item.submenu"><a ng-href="{{state.href(subitem.sref,subitem.params)}}"><i data-ng-class="subitem.icon"></i> {{subitem.text}}</a></li>
+				</ul>
+			</dd>
+		</dl>
+	</div>
+</aside>
+<div class="dislpayArrow"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+<section class="Hui-article-box">
+	<!--<div id="Hui-tabNav" class="Hui-tabNav">
+		<div class="Hui-tabNav-wp">
+			<ul id="min_title_list" class="acrossTab cl" min-nav>
+				<li class="active"><span title="我的桌面" data-href="welcome.html">我的桌面</span><em></em></li>
+			</ul>
+		</div>
+		<div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
+	</div>-->
+	<div id="iframe_box" class="Hui-article">
+		<h4 class="page-title">
+			<i class="Hui-iconfont Hui-iconfont-dingwei"></i>{{state.current.title}}
+		</h4>
+		<div ui-view></div>
+	</div>
+</section>
+
+

@@ -1,0 +1,53 @@
+{
+    "PriceAgioMax": 0,
+    "BrandID": "10",
+    "FullName": "保时捷卡宴2016款",
+    "CountryID": "7",
+    "ColorOutMemo": "兜风",
+    "ColorInMemo": "分个",
+    "CarCount": "12",
+    "PriceMarket": "123",
+    "Readme": "<p>无法</p>",
+    "ColorOutID": 3,
+    "ColorInID": 3,
+    "CarFlag": 3,
+    "StyleID": 4,
+    "CarOffers": [
+        {
+            "City": "福州市",
+            "Price": "121",
+            "Province": "福建",
+            "UnitCode": "6052316123102",
+            "PriceAgioMax": "2"
+        },
+        {
+            "City": "厦门市",
+            "Price": "120",
+            "Province": "福建",
+            "UnitCode": "6052409414031",
+            "PriceAgioMax": "3"
+        },
+        {
+            "City": "上海市",
+            "Price": "119",
+            "Province": "上海",
+            "UnitCode": "6053017012922",
+            "PriceAgioMax": "4"
+        },
+        {
+            "City": "天津市",
+            "Price": "118",
+            "Province": "天津",
+            "UnitCode": "6053109535142",
+            "PriceAgioMax": "5"
+        }
+    ],
+    "CoverImgURL": "/Files/CarImg/3d985ef457814c428f67af43166a1b97.jpg",
+    "CarPics": [
+        {
+            "PicAddr": "/Files/CarImg/3d985ef457814c428f67af43166a1b97.jpg",
+            "SerialNO": 1
+        }
+    ]
+}
+

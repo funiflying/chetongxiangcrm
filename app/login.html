@@ -1,0 +1,41 @@
+
+    <div class="header" ng-bind="app.name">
+
+    </div>
+    <div class="loginWraper">
+        <div id="loginform" class="loginBox">
+            <form class="form form-horizontal"  novalidate name="loginForm" style="margin-top: 30px" ng-keypress="submitKey($event)">
+                <div class="row cl">
+                    <label class="form-label col-3"><i class="Hui-iconfont">&#xe60d;</i></label>
+                    <div class="formControls col-8">
+                        <input id="" name="account" type="text" placeholder="账户" class="input-text size-L" required ng-model="account.account">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-3"><i class="Hui-iconfont">&#xe60e;</i></label>
+                    <div class="formControls col-8">
+                        <input  name="password" type="password" placeholder="密码" class="input-text size-L" required ng-model="account.pwd">
+                    </div>
+                </div>
+               <!-- <div class="row cl">
+                    <div class="formControls col-8 col-offset-3">
+                        <input class="input-text size-L" type="text" placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;">
+                        <img src="images/VerifyCode.aspx.png"> <a id="kanbuq" href="javascript:;">看不清，换一张</a> </div>
+                </div>-->
+                <div class="row">
+                    <div class="formControls col-8 col-offset-3">
+                        <label for="online">
+                            <input type="checkbox" name="online" id="online" value="" ng-model="remember"> 记住用户名
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="formControls col-8 col-offset-3">
+                        <input name="" type="button" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;" ng-disabled="loginForm.$invalid" ng-click="login()">
+                        <input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer">Copyright 车同享科技有限公司</div>
